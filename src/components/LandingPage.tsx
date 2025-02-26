@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import "../styles/globals.css"
@@ -35,7 +34,7 @@ const Navbar = () => (
 )
 
 export default function LandingPage() {
-  const [email, setEmail] = useState("")
+  //  const [email, setEmail] = useState("")
 
   return (
     <>
