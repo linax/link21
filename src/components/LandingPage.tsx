@@ -203,10 +203,10 @@ export default function LandingPage() {
           </div>
           <div className="team-members">
             <div className="team-member">
-              <img src="/api/placeholder/120/120" alt="María Rodríguez" />
-              <h3>María Rodríguez</h3>
-              <p>Fundadora y Directora</p>
-              <p>Madre de un niño con síndrome de Down y psicóloga especializada en desarrollo infantil.</p>
+              <img src="/api/placeholder/120/120" alt="Sebastián Valderrama" />
+              <h3>Sebastián Valderrama</h3>
+              <p>Cofundador</p>
+              <p>Médico Internista de la UC. Coordinador del Seguimiento en Salud de Adultos con Síndrome de Down.</p>
               <div className="social-links">
                 <a href="#">
                   <i className="fab fa-linkedin"></i>
@@ -218,9 +218,9 @@ export default function LandingPage() {
             </div>
             <div className="team-member">
               <img src="/api/placeholder/120/120" alt="Carlos Méndez" />
-              <h3>Carlos Méndez</h3>
-              <p>Coordinador Médico</p>
-              <p>Pediatra con 15 años de experiencia en atención a niños con síndrome de Down.</p>
+              <h3>Carolina Lagos</h3>
+              <p>Cofundadora</p>
+              <p>Ingeniero civil en informática, cofundadora de Ciudad fácil, organización para promover accesibilidad en las ciudades</p>
               <div className="social-links">
                 <a href="#">
                   <i className="fab fa-linkedin"></i>
@@ -232,29 +232,15 @@ export default function LandingPage() {
             </div>
             <div className="team-member">
               <img src="/api/placeholder/120/120" alt="Laura Gómez" />
-              <h3>Laura Gómez</h3>
-              <p>Coordinadora de Comunidad</p>
-              <p>Especialista en trabajo social con amplia experiencia en programas comunitarios.</p>
+              <h3>Gladys Alarcón</h3>
+              <p>Cofundadora</p>
+              <p>Contador Auditor, Máster en Dirección Financiera, Mentora certificada de Univ. De Chile y emprendedora. </p>
               <div className="social-links">
                 <a href="#">
                   <i className="fab fa-linkedin"></i>
                 </a>
                 <a href="#">
                   <i className="fab fa-twitter"></i>
-                </a>
-              </div>
-            </div>
-            <div className="team-member">
-              <img src="/api/placeholder/120/120" alt="Javier Torres" />
-              <h3>Javier Torres</h3>
-              <p>Responsable Tecnológico</p>
-              <p>Ingeniero informático especializado en plataformas digitales para comunidades.</p>
-              <div className="social-links">
-                <a href="#">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i className="fab fa-github"></i>
                 </a>
               </div>
             </div>
