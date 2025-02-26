@@ -37,21 +37,6 @@ const Navbar = () => (
 export default function LandingPage() {
   const [email, setEmail] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify({ email })
-      })
-      if (response.ok) {
-        setEmail("")
-      }
-    } catch (error) {
-      console.error("Error:", error)
-    }
-  }
-
   return (
     <>
       <Navbar />
