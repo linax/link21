@@ -36,6 +36,34 @@ const Navbar = () => (
 export default function LandingPage() {
   //  const [email, setEmail] = useState("")
 
+  const clients = [
+    {
+      title: "Pacientes",
+      description: "Encuentra apoyo, recursos y profesionales especializados",
+      icon: "👨‍👩‍👧‍👦"
+    },
+    {
+      title: "Familias",
+      description: "Encuentra apoyo, recursos y profesionales especializados",
+      icon: "👨‍👩‍👧‍👦"
+    },
+    {
+      title: "Profesionales",
+      description: "Comparte tu experiencia y conocimientos",
+      icon: "👨‍⚕️"
+    },
+    {
+      title: "Fundaciones",
+      description: "Comparte tu experiencia y conocimientos",
+      icon: "👨‍⚕️"
+    },
+    {
+      title: "Comunidad",
+      description: "Aprende, crece y conecta con otros",
+      icon: "🤝"
+    }
+  ]
+
   return (
     <>
       <Navbar />
@@ -64,33 +92,7 @@ export default function LandingPage() {
         {/* Cards Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Pacientes",
-                description: "Encuentra apoyo, recursos y profesionales especializados",
-                icon: "👨‍👩‍👧‍👦"
-              },
-              {
-                title: "Familias",
-                description: "Encuentra apoyo, recursos y profesionales especializados",
-                icon: "👨‍👩‍👧‍👦"
-              },
-              {
-                title: "Profesionales",
-                description: "Comparte tu experiencia y conocimientos",
-                icon: "👨‍⚕️"
-              },
-              {
-                title: "Fundaciones",
-                description: "Comparte tu experiencia y conocimientos",
-                icon: "👨‍⚕️"
-              },
-              {
-                title: "Comunidad",
-                description: "Aprende, crece y conecta con otros",
-                icon: "🤝"
-              }
-            ].map(card => (
+            {clients.map(card => (
               <div key={card.title} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100">
                 <div className="text-4xl mb-4">{card.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900">{card.title}</h3>
@@ -203,7 +205,7 @@ export default function LandingPage() {
           </div>
           <div className="team-members">
             <div className="team-member">
-              <img src="/api/placeholder/120/120" alt="Sebastián Valderrama" />
+              <Image src="/svalderrama.webp" width={400} height={400} alt="Sebastián Valderrama" />
               <h3>Sebastián Valderrama</h3>
               <p>Cofundador</p>
               <p>Médico Internista de la UC. Coordinador del Seguimiento en Salud de Adultos con Síndrome de Down.</p>
@@ -217,7 +219,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="team-member">
-              <img src="/api/placeholder/120/120" alt="Carlos Méndez" />
+              <Image src="/clagos.png" width={400} height={400} alt="Carolina Lagos" />
               <h3>Carolina Lagos</h3>
               <p>Cofundadora</p>
               <p>Ingeniero civil en informática, cofundadora de Ciudad fácil, organización para promover accesibilidad en las ciudades</p>
@@ -231,7 +233,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="team-member">
-              <img src="/api/placeholder/120/120" alt="Laura Gómez" />
+              <Image src="/gladys.png" width={400} height={400} alt="Gladys Alarcon" />
               <h3>Gladys Alarcón</h3>
               <p>Cofundadora</p>
               <p>Contador Auditor, Máster en Dirección Financiera, Mentora certificada de Univ. De Chile y emprendedora. </p>
@@ -306,7 +308,7 @@ export default function LandingPage() {
               <i className="fab fa-youtube"></i>
             </a>
           </div>
-          <p className="copyright">© 2025 ConexiónDown. Todos los derechos reservados.</p>
+          <p className="copyright">© 2025 Link21. Todos los derechos reservados.</p>
         </div>
       </footer>
     </>
