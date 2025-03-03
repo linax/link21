@@ -12,28 +12,18 @@ export default function Home() {
 
   const clients = [
     {
-      title: "Pacientes",
+      title: "Apoyo contínuo a Familias",
       description: "Encuentra apoyo, recursos y profesionales especializados",
       icon: "👨‍👩‍👧‍👦"
     },
     {
-      title: "Familias",
-      description: "Encuentra apoyo, recursos y profesionales especializados",
-      icon: "👨‍👩‍👧‍👦"
-    },
-    {
-      title: "Profesionales",
-      description: "Comparte tu experiencia y conocimientos",
-      icon: "👨‍⚕️"
-    },
-    {
-      title: "Fundaciones",
-      description: "Comparte tu experiencia y conocimientos",
+      title: "Acceso a especialistas",
+      description: "Facilitamos el contacto con profesionales especializados en síndrome de Down, quienes a su vez tienen a cceso a expertos para redes de derivación. ",
       icon: "👨‍⚕️"
     },
     {
       title: "Comunidad",
-      description: "Aprende, crece y conecta con otros",
+      description: "Creamos espacios para compartir experiencias y aprendizajes entre familias.",
       icon: "🤝"
     }
   ]
@@ -64,17 +54,6 @@ export default function Home() {
         </div>
 
         {/* Cards Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {clients.map(card => (
-              <div key={card.title} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100">
-                <div className="text-4xl mb-4">{card.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900">{card.title}</h3>
-                <p className="mt-2 text-gray-600">{card.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
       <section id="proposito">
         <div className="container">
@@ -83,26 +62,14 @@ export default function Home() {
             <p>Trabajamos para crear una comunidad inclusiva que promueva el desarrollo y bienestar de las personas con síndrome de Down.</p>
           </div>
           <div className="purpose-cards">
-            <div className="purpose-card">
-              <div className="icon">
-                <i className="fas fa-hands-helping"></i>
-              </div>
-              <h3>Apoyo Continuo</h3>
-              <p>Brindamos acompañamiento y recursos para familias en todas las etapas de desarrollo.</p>
-            </div>
-            <div className="purpose-card">
-              <div className="icon">
-                <i className="fas fa-user-md"></i>
-              </div>
-              <h3>Acceso a Especialistas</h3>
-              <p>Facilitamos el contacto con profesionales especializados en síndrome de Down.</p>
-            </div>
-            <div className="purpose-card">
-              <div className="icon">
-                <i className="fas fa-users"></i>
-              </div>
-              <h3>Comunidad Solidaria</h3>
-              <p>Creamos espacios para compartir experiencias y aprendizajes entre familias.</p>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {clients.map(card => (
+                <div key={card.title} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100">
+                  <div className="text-4xl mb-4">{card.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900">{card.title}</h3>
+                  <p className="mt-2 text-gray-600">{card.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -116,7 +83,7 @@ export default function Home() {
           </div>
           <div className="connect-options">
             <div className="connect-option">
-              <img src="/api/placeholder/350/200" alt="Familia a familia" />
+              <Image src="/familia_sd.jpeg" alt="Familia a familia" width={400} height={400} />
               <h3>Conexión entre Familias</h3>
               <p>Únete a nuestra red de familias para compartir experiencias, consejos y apoyo emocional con personas que entienden tu situación.</p>
               <a href="#" className="btn">
@@ -124,7 +91,7 @@ export default function Home() {
               </a>
             </div>
             <div className="connect-option">
-              <img src="/api/placeholder/350/200" alt="Profesionales de salud" />
+              <Image src="/equipo_medico.jpeg" alt="Profesionales de salud" width={400} height={400} />
               <h3>Conexión con Profesionales</h3>
               <p>Encuentra especialistas en diferentes áreas: médicos, terapeutas, educadores y más, todos con experiencia en síndrome de Down.</p>
               <a href="#" className="btn">
