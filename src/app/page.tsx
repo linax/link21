@@ -42,11 +42,11 @@ export default function Home() {
               <h1 className="text-5xl font-bold text-gray-900 mb-6">Link 21</h1>
               <p className="text-xl text-gray-700 mb-8">Conectando familias con profesionales de salud y educación para una mejor calidad de vida</p>
               <div className="hero-buttons">
-                <Link href="#conectar" className="btn">
-                  Soy Familiar
+                <Link href="#conectar" className="inline-block">
+                  <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-600 hover:text-white flex items-center transition-colors">Soy Familiar</button>
                 </Link>
-                <Link href="#profesionales" className="btn btn-secondary">
-                  Soy Profesional
+                <Link href="/profesionales" className="inline-block">
+                  <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-600 hover:text-white flex items-center transition-colors">Soy Profesional</button>
                 </Link>
               </div>
             </div>
@@ -98,43 +98,6 @@ export default function Home() {
                 Buscar profesionales
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="profesionales">
-        <div className="container">
-          <div className="section-title">
-            <h2>Para Profesionales</h2>
-            <p>Si eres un profesional de la salud interesado en formar parte de nuestra comunidad, nos encantaría conocerte.</p>
-          </div>
-          <div className="contact-form">
-            <form id="professionalForm">
-              <div className="form-group">
-                <label htmlFor="name">Nombre completo</label>
-                <input type="text" id="name" className="form-control" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="speciality">Especialidad</label>
-                <input type="text" id="speciality" className="form-control" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Correo electrónico</label>
-                <input type="email" id="email" className="form-control" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">Teléfono</label>
-                <input type="tel" id="phone" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">¿Cómo te gustaría colaborar?</label>
-                <textarea id="message" className="form-control" required></textarea>
-              </div>
-              <div className="text-center">
-                <button type="submit" className="btn">
-                  Enviar solicitud
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </section>
