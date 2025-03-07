@@ -2,13 +2,13 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <a href="#" className="logo">
+        <a href="#" className="logo text-amber-700">
           Link<span>21</span>
         </a>
         <div className="footer-links">
           <a href="#proposito">Propósito</a>
           <a href="#conectar">Conectar</a>
-          <a href="#profesionales">Profesionales</a>
+          <a href="/profesionales">Profesionales</a>
           <a href="#equipo">Equipo</a>
           <a href="#contacto">Contacto</a>
         </div>

@@ -43,10 +43,10 @@ export default function Home() {
               <p className="text-xl text-gray-700 mb-8">Conectando familias con profesionales de salud y educación para una mejor calidad de vida</p>
               <div className="hero-buttons">
                 <Link href="#conectar" className="inline-block">
-                  <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-600 hover:text-white flex items-center transition-colors">Soy Familiar</button>
+                  <button className="bg-white text-amber-500 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 hover:text-white flex items-center transition-colors">Soy Familiar</button>
                 </Link>
                 <Link href="/profesionales" className="inline-block">
-                  <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-600 hover:text-white flex items-center transition-colors">Soy Profesional</button>
+                  <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Soy Profesional</button>
                 </Link>
               </div>
             </div>
