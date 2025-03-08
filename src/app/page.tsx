@@ -93,7 +93,7 @@ export default function Home() {
             <div className="connect-option">
               <Image src="/equipo_medico.jpeg" alt="Profesionales de salud" width={400} height={400} />
               <h3>Conexión con Profesionales</h3>
-              <p>Encuentra especialistas en diferentes áreas: médicos, terapeutas, educadores y más, todos con experiencia en síndrome de Down.</p>
+              <p>Encuentra especialistas en diferentes áreas: médicos, terapeutas, educadores y más, con experiencia en síndrome de Down, te apoyamos con nuestro agente IA que te guiará en el camino.</p>
               <a href="#" className="btn">
                 Buscar profesionales
               </a>
