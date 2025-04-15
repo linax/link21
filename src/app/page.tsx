@@ -38,12 +38,15 @@ export default function Home() {
             <Image src="/img-sd.jpeg" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-            <div className="max-w-2xl">
+            <div className="max-w-4xl">
               <h1 className="text-5xl font-bold text-gray-900 mb-6">Facilitamos la gestión del tratamiento de síndrome de down</h1>
               <p className="text-xl text-gray-700 mb-8">Conectando familias con profesionales de salud y educación para una mejor calidad de vida</p>
               <div className="hero-buttons">
+                <Link href="#contacto" className="inline-block">
+                  <button className=" bg-white text-amber-500 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 hover:text-white flex items-center transition-colors">Soy persona con Síndrome de Down</button>
+                </Link>
                 <Link href="#conectar" className="inline-block">
-                  <button className="bg-white text-amber-500 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 hover:text-white flex items-center transition-colors">Soy Familiar</button>
+                  <button className="mb-3 bg-white text-amber-700 px-8 py-3 rounded-full font-semibold hover:bg-amber-700 hover:text-white flex items-center transition-colors">Soy Familiar</button>
                 </Link>
                 <Link href="/profesionales" className="inline-block">
                   <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Soy Profesional</button>
@@ -52,8 +55,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Cards Section */}
       </main>
       <section id="proposito">
         <div className="container">
