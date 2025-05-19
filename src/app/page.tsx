@@ -106,7 +106,7 @@ export default function Home() {
         <div className="container">
           <div className="section-title">
             <h2>Soy Persona con Síndrome de down</h2>
-            <p>Ofrecemos diferentes formas de conexión para satisfacer tus necesidades específicas.</p>
+            <p>Encuentra los mejores panoramas, oportuniades y actividades para ti.</p>
           </div>
           <div className="connect-options">
             <div className="connect-option">
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="container">
           <div className="section-title">
             <h2>Soy Profesional de salud interesado en Síndrome de down</h2>
-            <p>Ofrecemos diferentes formas de conexión para ayudarte en la atención de personas con síndrome de down.</p>
+            <p>Ofrecemos diferentes alternativas para ayudarte en la atención de personas con síndrome de down.</p>
           </div>
           <div className="connect-options">
             <div className="connect-option">

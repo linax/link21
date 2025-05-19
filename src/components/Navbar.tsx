@@ -22,9 +22,6 @@ const Navbar = () => {
             <Link href="#conectar" className="text-gray-700 hover:text-blue-600">
               Conectar
             </Link>
-            <Link href="/profesionales" className="text-gray-700 hover:text-blue-600">
-              Profesionales
-            </Link>
             <Link href="#equipo" className="text-gray-700 hover:text-blue-600">
               Equipo
             </Link>
