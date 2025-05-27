@@ -6,6 +6,8 @@ import "../styles/globals.css"
 import Navbar from "@/components/Navbar"
 import Team from "@/components/Team"
 import Footer from "@/components/Footer"
+import PricingPlans from "@/components/PricingPlans"
+import AdditionalServices from "@/components/AdditionalServices"
 
 export default function Home() {
   //  const [email, setEmail] = useState("")
@@ -39,17 +41,11 @@ export default function Home() {
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">Promovemos el bienestar para las personas con síndrome de down</h1>
+              <h1 className="text-5xl font-bold text-gray-900 mb-6">Apoyamos a familias de adultos con síndrome de Down a construir un futuro realista y personalizado, maximizando su potencial.</h1>
               <p className="text-xl text-gray-700 mb-8">Conectando familias con profesionales de salud y educación para una mejor calidad de vida</p>
               <div className="hero-buttons">
-                <Link href="#sd" className="inline-block">
-                  <button className=" bg-white text-amber-500 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 hover:text-white flex items-center transition-colors">Soy persona con Síndrome de Down</button>
-                </Link>
-                <Link href="#conectar" className="inline-block">
-                  <button className="mb-3 bg-white text-amber-700 px-8 py-3 rounded-full font-semibold hover:bg-amber-700 hover:text-white flex items-center transition-colors">Soy Familiar</button>
-                </Link>
-                <Link href="#profesionales" className="inline-block">
-                  <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Soy Profesional</button>
+                <Link href="#contacto" className="inline-block">
+                  <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Quiero que me contacten</button>
                 </Link>
               </div>
             </div>
@@ -76,92 +72,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="conectar" className="bg-light">
-        <div className="container">
-          <div className="section-title">
-            <h2>Soy Familiar</h2>
-            <p>Ofrecemos diferentes formas de conexión para satisfacer tus necesidades específicas.</p>
-          </div>
-          <div className="connect-options">
-            <div className="connect-option">
-              <Image src="/familia2-sd.jpg" alt="Familia a familia" width={400} height={400} />
-              <h3>Conexión entre Familias</h3>
-              <p>Únete a nuestra red de familias para compartir experiencias, consejos y apoyo emocional con personas que entienden tu situación.</p>
-              <a href="#" className="btn">
-                Conoce más
-              </a>
-            </div>
-            <div className="connect-option">
-              <Image src="/medical-team.jpg" alt="Profesionales de salud" width={400} height={400} />
-              <h3>Conexión con Profesionales</h3>
-              <p>Encuentra especialistas en diferentes áreas: médicos, terapeutas, educadores y más, con experiencia en síndrome de Down, te apoyamos con nuestro agente IA que te guiará en el camino.</p>
-              <a href="#" className="btn">
-                Buscar profesionales
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="sd" className="bg-light">
-        <div className="container">
-          <div className="section-title">
-            <h2>Soy Persona con Síndrome de down</h2>
-            <p>Encuentra los mejores panoramas, oportuniades y actividades para ti.</p>
-          </div>
-          <div className="connect-options">
-            <div className="connect-option">
-              <Image src="/technology-sd.png" alt="Familia a familia" width={400} height={400} />
-              <h3>Conecta con amigos</h3>
-              <p>Únete a nuestra red de personas con síndrome de down y comparte experiencias, actividades y amistad!</p>
-              <a href="#" className="btn">
-                Comienza aquí
-              </a>
-            </div>
-            <div className="connect-option">
-              <Image src="/persona-sd.png" alt="desarrolo" width={400} height={400} />
-              <h3>Oportunidades de desarrollo</h3>
-              <p>Encuentra oportunidades de aprendizaje, bienestar y desarrollo.</p>
-              <a href="#" className="btn">
-                Buscar oportunidades
-              </a>
-            </div>
-            <div className="connect-option">
-              <Image src="/girl-sd.jpg" alt="Profesionales de salud" width={400} height={400} />
-              <h3>Actividades entretenidas</h3>
-              <p>Encuentra actividades entretenidas para realizar en tu tiempo libre.</p>
-              <a href="#" className="btn">
-                Buscar actividades
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="profesionales" className="bg-light">
-        <div className="container">
-          <div className="section-title">
-            <h2>Soy Profesional de salud interesado en Síndrome de down</h2>
-            <p>Ofrecemos diferentes alternativas para ayudarte en la atención de personas con síndrome de down.</p>
-          </div>
-          <div className="connect-options">
-            <div className="connect-option">
-              <Image src="/newsletter.jpg" alt="Familia a familia" width={400} height={400} />
-              <h3>Acceso a newsletter mensual</h3>
-              <p>Recibe un resumen de las últimas publicaciones sobre síndrome de down .</p>
-              <a href="#" className="btn">
-                Registrate aquí
-              </a>
-            </div>
-            <div className="connect-option">
-              <Image  src="/medical-team.jpg" alt="desarrolo" width={400} height={400} />
-              <h3>Redes de derivación dentro de Chile</h3>
-              <p>Encuentra a otros profesionales con experiencia en atención de personas con síndrome de down.</p>
-              <a href="#" className="btn">
-                Buscar profesionales
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PricingPlans />
+      <AdditionalServices />
       <Team />
       <section id="contacto">
         <div className="container">
