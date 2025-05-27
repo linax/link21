@@ -41,8 +41,8 @@ export default function Home() {
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
-              <h1 className="text-5xl font-bold text-amber-700 mb-6">Apoyamos a familias de adultos con síndrome de Down a construir un futuro realista y personalizado, maximizando su potencial.</h1>
-              <p className="text-xl text-gray-700 mb-8">Conectando familias con profesionales de salud y educación para una mejor calidad de vida</p>
+              <h1 className="text-5xl font-bold text-amber-700 mb-6">Apoyamos a familias de adultos con síndrome de Down a construir su futuro.</h1>
+              <p className="text-xl text-gray-700 mb-8">Conectando familias con servicios salud y educación para una mejor calidad de vida</p>
               <div className="hero-buttons">
                 <Link href="#contacto" className="inline-block">
                   <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Quiero que me contacten</button>
