@@ -37,7 +37,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative h-[90vh] bg-gradient-to-r from-blue-50 to-red-100">
           <div className="absolute inset-0">
-            <Image src="/persona-sd.png" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
+            <Image src="/maraton2.jpeg" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
