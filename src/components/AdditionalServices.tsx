@@ -54,7 +54,6 @@ const AdditionalServices = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <div className="mt-auto flex justify-between items-center">
-                  <span className="text-lg font-bold text-blue-600">{service.price}</span>
                   <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
                     Contratar
                   </button>

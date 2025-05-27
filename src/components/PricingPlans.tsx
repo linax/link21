@@ -62,7 +62,6 @@ const PricingPlans = () => {
             >
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{plan.name}</h3>
-                <div className="text-3xl font-bold text-gray-900 mb-6">{plan.price}<span className="text-lg text-gray-500">/mes</span></div>
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center text-gray-600">
