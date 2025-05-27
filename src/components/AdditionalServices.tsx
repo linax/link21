@@ -19,13 +19,13 @@ const AdditionalServices = () => {
       title: 'Job coaching intensivo (mensual)',
       description: 'Apoyo y orientación para el proceso de inserción laboral.',
       price: '$300.000',
-      image: '/technology-sd.jpg'
+      image: '/coach.jpg'
     },
     {
       title: 'Respiro familiar especializado',
       description: 'Asistente o tutor para apoyar a la familia en el cuidado de la persona con síndrome de Down.',
       price: '$15.000/hora',
-      image: '/girl-sd.jpg'
+      image: '/care.webp'
     }
   ];
 
