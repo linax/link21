@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import "../styles/globals.css"
 import Navbar from "@/components/Navbar"
 import Team from "@/components/Team"
@@ -12,11 +12,6 @@ export default function Home() {
   const [userLocation, setUserLocation] = useState("")
   const [selectedAge, setSelectedAge] = useState("")
   const [selectedInterest, setSelectedInterest] = useState("")
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   const clients = [
     {
@@ -118,119 +113,91 @@ export default function Home() {
           </div>
 
           {/* Formulario de Localización */}
-          {isClient && (
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                  Encuentra actividades cerca de ti
-                </h3>
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Encuentra actividades cerca de ti
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div>
+                  <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
+                    📍 Tu ubicación
+                  </label>
+                  <input
+                    type="text"
+                    id="location"
+                    value={userLocation}
+                    onChange={(e) => setUserLocation(e.target.value)}
+                    placeholder="Ej: Valdivia, Los Ríos"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  />
+                </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  <div>
-                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
-                      📍 Tu ubicación
-                    </label>
-                    <input
-                      type="text"
-                      id="location"
-                      value={userLocation}
-                      onChange={(e) => setUserLocation(e.target.value)}
-                      placeholder="Ej: Valdivia, Los Ríos"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-2">
-                      🎂 Edad
-                    </label>
-                    <select
-                      id="age"
-                      value={selectedAge}
-                      onChange={(e) => setSelectedAge(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    >
-                      <option value="">Selecciona edad</option>
-                      <option value="18-25">18-25 años</option>
-                      <option value="26-35">26-35 años</option>
-                      <option value="36-45">36-45 años</option>
-                      <option value="46+">46+ años</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
-                      💡 Interés principal
-                    </label>
-                    <select
-                      id="interest"
-                      value={selectedInterest}
-                      onChange={(e) => setSelectedInterest(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    >
-                      <option value="">Selecciona interés</option>
-                      <option value="arte">Arte y Creatividad</option>
-                      <option value="deportes">Deportes y Movimiento</option>
-                      <option value="vida">Habilidades de Vida</option>
-                      <option value="musica">Música y Baile</option>
-                      <option value="cocina">Cocina</option>
-                      <option value="jardineria">Jardinería</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Botón principal destacado */}
-                <div className="text-center">
-                  <button
-                    onClick={handleFindActivities}
-                    className="group relative inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-white transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
-                    style={{
-                      background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
-                      borderRadius: '50px',
-                      boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)'
-                    }}
+                <div>
+                  <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-2">
+                    🎂 Edad
+                  </label>
+                  <select
+                    id="age"
+                    value={selectedAge}
+                    onChange={(e) => setSelectedAge(e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
-                    <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span className="relative flex items-center">
-                      <svg className="w-6 h-6 mr-3 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                      🚀 Encontrar Actividades Perfectas
-                      <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </span>
-                  </button>
+                    <option value="">Selecciona edad</option>
+                    <option value="18-25">18-25 años</option>
+                    <option value="26-35">26-35 años</option>
+                    <option value="36-45">36-45 años</option>
+                    <option value="46+">46+ años</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
+                    💡 Interés principal
+                  </label>
+                  <select
+                    id="interest"
+                    value={selectedInterest}
+                    onChange={(e) => setSelectedInterest(e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  >
+                    <option value="">Selecciona interés</option>
+                    <option value="arte">Arte y Creatividad</option>
+                    <option value="deportes">Deportes y Movimiento</option>
+                    <option value="vida">Habilidades de Vida</option>
+                    <option value="musica">Música y Baile</option>
+                    <option value="cocina">Cocina</option>
+                    <option value="jardineria">Jardinería</option>
+                  </select>
                 </div>
               </div>
-            </div>
-          )}
-          
-          {/* Fallback mientras se carga el cliente */}
-          {!isClient && (
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                  Encuentra actividades cerca de ti
-                </h3>
-                <div className="text-center">
-                  <Link href="/actividades">
-                    <button className="group relative inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-white transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
-                      style={{
-                        background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
-                        borderRadius: '50px',
-                        boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)'
-                      }}
-                    >
-                      <span className="relative flex items-center">
-                        🚀 Ver Todas las Actividades
-                      </span>
-                    </button>
-                  </Link>
-                </div>
+
+              {/* Botón principal destacado */}
+              <div className="text-center">
+                <button
+                  onClick={handleFindActivities}
+                  className="group relative inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-white transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  style={{
+                    background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
+                    borderRadius: '50px',
+                    boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)'
+                  }}
+                >
+                  <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="relative flex items-center">
+                    <svg className="w-6 h-6 mr-3 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    🚀 Encontrar Actividades Perfectas
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </button>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Tipos de Actividades */}
           <div className="mb-12">
@@ -238,7 +205,7 @@ export default function Home() {
               Tipos de Actividades Disponibles
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activityTypes.map((type, index) => (
+              {activityTypes.map((type) => (
                 <div 
                   key={type.name} 
                   className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2"
