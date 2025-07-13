@@ -1,18 +1,73 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, MapPin, Clock, Calendar, Heart, Filter, Star, Users, Phone, Mail } from 'lucide-react';
 
-const ActivitiesPlatform = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedDay, setSelectedDay] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
-  const [favorites, setFavorites] = useState([]);
-  const [selectedActivity, setSelectedActivity] = useState(null);
+// Tipos TypeScript
+interface Schedule {
+  day: string;
+  time: string;
+}
 
-  // Datos de ejemplo de actividades
-  const activities = [
+interface Activity {
+  id: number;
+  name: string;
+  type: string;
+  description: string;
+  location: string;
+  address: string;
+  distance: string;
+  schedule: Schedule[];
+  instructor: string;
+  capacity: number;
+  enrolled: number;
+  price: string;
+  difficulty: 'Principiante' | 'Intermedio' | 'Avanzado' | 'Todos los niveles';
+  rating: number;
+  phone: string;
+  email: string;
+  image: string;
+  tags: string[];
+  ageGroup: string;
+  minAge: number;
+  maxAge: number;
+  interests: string[];
+}
+
+interface Filters {
+  searchTerm: string;
+  selectedDay: string;
+  selectedTime: string;
+  selectedLocation: string;
+  selectedAge: string;
+  selectedInterest: string;
+}
+
+interface ActivitiesPlatformProps {
+  location?: string;
+  age?: number;
+  interest?: string;
+}
+
+const ActivitiesPlatform: React.FC<ActivitiesPlatformProps> = ({ 
+  location = '', 
+  age, 
+  interest = '' 
+}) => {
+  const [filters, setFilters] = useState<Filters>({
+    searchTerm: '',
+    selectedDay: '',
+    selectedTime: '',
+    selectedLocation: location,
+    selectedAge: age ? age.toString() : '',
+    selectedInterest: interest
+  });
+  
+  const [showFilters, setShowFilters] = useState<boolean>(false);
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
+
+  // Datos de ejemplo de actividades con tipos mejorados
+  const activities: Activity[] = [
     {
       id: 1,
       name: 'Taller de Mandalas',
@@ -35,7 +90,10 @@ const ActivitiesPlatform = () => {
       email: 'maria@centroflores.cl',
       image: '🎨',
       tags: ['Arte', 'Relajación', 'Motricidad'],
-      ageGroup: '16-30 años'
+      ageGroup: '16-30 años',
+      minAge: 16,
+      maxAge: 30,
+      interests: ['arte', 'creatividad', 'relajación', 'manualidades']
     },
     {
       id: 2,
@@ -59,7 +117,10 @@ const ActivitiesPlatform = () => {
       email: 'carlos@danzalibre.cl',
       image: '💃',
       tags: ['Baile', 'Coordinación', 'Expresión'],
-      ageGroup: '14-35 años'
+      ageGroup: '14-35 años',
+      minAge: 14,
+      maxAge: 35,
+      interests: ['baile', 'música', 'movimiento', 'expresión', 'coordinación']
     },
     {
       id: 3,
@@ -83,7 +144,10 @@ const ActivitiesPlatform = () => {
       email: 'ana@gimnasioinc.cl',
       image: '🏋️',
       tags: ['Ejercicio', 'Fuerza', 'Resistencia'],
-      ageGroup: '16-40 años'
+      ageGroup: '16-40 años',
+      minAge: 16,
+      maxAge: 40,
+      interests: ['ejercicio', 'deporte', 'fuerza', 'salud', 'fitness']
     },
     {
       id: 4,
@@ -107,7 +171,10 @@ const ActivitiesPlatform = () => {
       email: 'pedro@cocinacom.cl',
       image: '👨‍🍳',
       tags: ['Cocina', 'Autonomía', 'Nutrición'],
-      ageGroup: '18-45 años'
+      ageGroup: '18-45 años',
+      minAge: 18,
+      maxAge: 45,
+      interests: ['cocina', 'alimentación', 'autonomía', 'nutrición', 'vida práctica']
     },
     {
       id: 5,
@@ -131,7 +198,10 @@ const ActivitiesPlatform = () => {
       email: 'sofia@conservatorio.cl',
       image: '🎵',
       tags: ['Música', 'Canto', 'Expresión'],
-      ageGroup: '15-50 años'
+      ageGroup: '15-50 años',
+      minAge: 15,
+      maxAge: 50,
+      interests: ['música', 'canto', 'arte', 'expresión', 'creatividad']
     },
     {
       id: 6,
@@ -155,27 +225,41 @@ const ActivitiesPlatform = () => {
       email: 'miguel@huertoverde.cl',
       image: '🌱',
       tags: ['Jardinería', 'Naturaleza', 'Responsabilidad'],
-      ageGroup: '16-60 años'
+      ageGroup: '16-60 años',
+      minAge: 16,
+      maxAge: 60,
+      interests: ['jardinería', 'naturaleza', 'plantas', 'responsabilidad', 'terapia']
     }
   ];
 
-  const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-  const times = ['9:00 - 12:00', '14:00 - 17:00', '10:00 - 13:00', '15:00 - 18:00'];
+  const days: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  const times: string[] = ['9:00 - 12:00', '14:00 - 17:00', '10:00 - 13:00', '15:00 - 18:00'];
+  const ageRanges: string[] = ['14-18', '19-25', '26-35', '36-45', '46-60'];
+  const interests: string[] = ['arte', 'música', 'deporte', 'cocina', 'naturaleza', 'baile', 'creatividad'];
 
-  // Filtrar actividades
-  const filteredActivities = activities.filter(activity => {
-    const matchesSearch = activity.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         activity.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         activity.description.toLowerCase().includes(searchTerm.toLowerCase());
+  // Filtrar actividades con tipos seguros
+  const filteredActivities: Activity[] = activities.filter((activity: Activity) => {
+    const matchesSearch = activity.name.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
+                         activity.type.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
+                         activity.description.toLowerCase().includes(filters.searchTerm.toLowerCase());
     
-    const matchesDay = !selectedDay || activity.schedule.some(s => s.day === selectedDay);
-    const matchesTime = !selectedTime || activity.schedule.some(s => s.time.includes(selectedTime.split(' - ')[0]));
-    const matchesLocation = !selectedLocation || activity.location.toLowerCase().includes(selectedLocation.toLowerCase());
+    const matchesDay = !filters.selectedDay || activity.schedule.some(s => s.day === filters.selectedDay);
+    const matchesTime = !filters.selectedTime || activity.schedule.some(s => s.time.includes(filters.selectedTime.split(' - ')[0]));
+    const matchesLocation = !filters.selectedLocation || activity.location.toLowerCase().includes(filters.selectedLocation.toLowerCase());
     
-    return matchesSearch && matchesDay && matchesTime && matchesLocation;
+    const matchesAge = !filters.selectedAge || (() => {
+      const [minAge, maxAge] = filters.selectedAge.split('-').map(Number);
+      return activity.minAge <= maxAge && activity.maxAge >= minAge;
+    })();
+    
+    const matchesInterest = !filters.selectedInterest || activity.interests.some(interest => 
+      interest.toLowerCase().includes(filters.selectedInterest.toLowerCase())
+    );
+    
+    return matchesSearch && matchesDay && matchesTime && matchesLocation && matchesAge && matchesInterest;
   });
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (id: number): void => {
     setFavorites(prev => 
       prev.includes(id) 
         ? prev.filter(fav => fav !== id)
@@ -183,7 +267,11 @@ const ActivitiesPlatform = () => {
     );
   };
 
-  const getDifficultyColor = (difficulty) => {
+  const updateFilter = (key: keyof Filters, value: string): void => {
+    setFilters(prev => ({ ...prev, [key]: value }));
+  };
+
+  const getDifficultyColor = (difficulty: Activity['difficulty']): string => {
     switch(difficulty) {
       case 'Principiante': return 'bg-green-100 text-green-800';
       case 'Intermedio': return 'bg-yellow-100 text-yellow-800';
@@ -192,7 +280,7 @@ const ActivitiesPlatform = () => {
     }
   };
 
-  const getTypeColor = (type) => {
+  const getTypeColor = (type: string): string => {
     switch(type) {
       case 'Arte y Creatividad': return 'bg-purple-100 text-purple-800';
       case 'Deportes y Movimiento': return 'bg-orange-100 text-orange-800';
@@ -200,6 +288,26 @@ const ActivitiesPlatform = () => {
       default: return 'bg-gray-100 text-gray-800';
     }
   };
+
+  // Aplicar filtros iniciales basados en props
+  useEffect(() => {
+    if (location) {
+      setFilters(prev => ({ ...prev, selectedLocation: location }));
+    }
+    if (age) {
+      // Encontrar el rango de edad apropiado
+      const ageRange = ageRanges.find(range => {
+        const [min, max] = range.split('-').map(Number);
+        return age >= min && age <= max;
+      });
+      if (ageRange) {
+        setFilters(prev => ({ ...prev, selectedAge: ageRange }));
+      }
+    }
+    if (interest) {
+      setFilters(prev => ({ ...prev, selectedInterest: interest }));
+    }
+  }, [location, age, interest]);
 
   if (selectedActivity) {
     return (
@@ -272,7 +380,7 @@ const ActivitiesPlatform = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Horarios</h3>
               <div className="space-y-3">
-                {selectedActivity.schedule.map((slot, index) => (
+                {selectedActivity.schedule.map((slot: Schedule, index: number) => (
                   <div key={index} className="flex items-center p-3 bg-gray-50 rounded-lg">
                     <Calendar className="w-5 h-5 text-blue-500 mr-3" />
                     <div>
@@ -286,7 +394,7 @@ const ActivitiesPlatform = () => {
               <div className="mt-6">
                 <h4 className="font-semibold mb-2">Etiquetas</h4>
                 <div className="flex flex-wrap gap-2">
-                  {selectedActivity.tags.map((tag, index) => (
+                  {selectedActivity.tags.map((tag: string, index: number) => (
                     <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
                       {tag}
                     </span>
@@ -334,6 +442,25 @@ const ActivitiesPlatform = () => {
         <p className="text-lg text-gray-600">
           Encuentra actividades perfectas para adolescentes y adultos con Síndrome de Down
         </p>
+        {(location || age || interest) && (
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            {location && (
+              <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                📍 {location}
+              </span>
+            )}
+            {age && (
+              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                👤 {age} años
+              </span>
+            )}
+            {interest && (
+              <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
+                ❤️ {interest}
+              </span>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Search and Filters */}
@@ -345,8 +472,8 @@ const ActivitiesPlatform = () => {
               type="text"
               placeholder="Buscar actividades..."
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={filters.searchTerm}
+              onChange={(e) => updateFilter('searchTerm', e.target.value)}
             />
           </div>
           <button
@@ -359,18 +486,18 @@ const ActivitiesPlatform = () => {
         </div>
 
         {showFilters && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 pt-4 border-t">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Día de la semana
               </label>
               <select
-                value={selectedDay}
-                onChange={(e) => setSelectedDay(e.target.value)}
+                value={filters.selectedDay}
+                onChange={(e) => updateFilter('selectedDay', e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Todos los días</option>
-                {days.map(day => (
+                {days.map((day: string) => (
                   <option key={day} value={day}>{day}</option>
                 ))}
               </select>
@@ -380,12 +507,12 @@ const ActivitiesPlatform = () => {
                 Horario
               </label>
               <select
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.target.value)}
+                value={filters.selectedTime}
+                onChange={(e) => updateFilter('selectedTime', e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Todos los horarios</option>
-                {times.map(time => (
+                {times.map((time: string) => (
                   <option key={time} value={time}>{time}</option>
                 ))}
               </select>
@@ -398,9 +525,39 @@ const ActivitiesPlatform = () => {
                 type="text"
                 placeholder="Filtrar por ubicación"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
+                value={filters.selectedLocation}
+                onChange={(e) => updateFilter('selectedLocation', e.target.value)}
               />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Rango de edad
+              </label>
+              <select
+                value={filters.selectedAge}
+                onChange={(e) => updateFilter('selectedAge', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Todas las edades</option>
+                {ageRanges.map((range: string) => (
+                  <option key={range} value={range}>{range} años</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Interés
+              </label>
+              <select
+                value={filters.selectedInterest}
+                onChange={(e) => updateFilter('selectedInterest', e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Todos los intereses</option>
+                {interests.map((interest: string) => (
+                  <option key={interest} value={interest}>{interest}</option>
+                ))}
+              </select>
             </div>
           </div>
         )}
@@ -408,7 +565,7 @@ const ActivitiesPlatform = () => {
 
       {/* Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredActivities.map((activity) => (
+        {filteredActivities.map((activity: Activity) => (
           <div key={activity.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div className="p-6">
               <div className="flex items-start justify-between mb-4">
@@ -458,7 +615,7 @@ const ActivitiesPlatform = () => {
               
               <div className="mb-4">
                 <h4 className="font-medium text-gray-700 mb-2">Horarios disponibles:</h4>
-                {activity.schedule.map((slot, index) => (
+                {activity.schedule.map((slot: Schedule, index: number) => (
                   <div key={index} className="flex items-center text-sm text-gray-600 mb-1">
                     <Clock className="w-4 h-4 mr-2" />
                     <span>{slot.day}: {slot.time}</span>
