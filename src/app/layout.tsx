@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Link21: Comunidad Síndrome de Down",
-  description: "Conectando familias con profesionales de salud"
+  description: "Conectamos a adultos con Síndrome de Down con actividades con sentido y propósito"
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
