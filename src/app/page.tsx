@@ -62,11 +62,11 @@ export default function Home() {
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
-              <h1 className="text-5xl font-bold text-amber-700 mb-6">Después de los 18 sus oportunidades se reducen.  Nosotros las multiplicamos. </h1>
-              <p className="text-xl text-gray-700 mb-8">Te creamos un calendario de actividades de aprendizaje, recreación y socialización para adultos con Síndrome de Down que se adaptan a tus horarios.</p>
+              <h1 className="text-5xl font-bold text-purple-600 mb-6">Después de los 18 sus oportunidades se reducen.  Nosotros las multiplicamos. </h1>
+              <p className="text-xl text-gray-600 mb-8">Te creamos un calendario de actividades de aprendizaje, recreación y socialización para adultos con Síndrome de Down que se adaptan a tus horarios.</p>
               <div className="hero-buttons">
-                <Link href="#contacto" className="inline-block">
-                  <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white flex items-center transition-colors">Quiero que me contacten</button>
+                <Link href="#actividades" className="inline-block">
+                  <button className="bg-white text-purple-800 px-8 py-3 rounded-full font-semibold hover:bg-purple-700 hover:text-white flex items-center transition-colors">Cuéntame más</button>
                 </Link>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Sección de Actividades Mejorada */}
-      <section id="planes" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <section id="actividades" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block p-3 bg-blue-100 rounded-full mb-4">
