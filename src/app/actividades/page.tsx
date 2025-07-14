@@ -649,4 +649,7 @@ const ActivitiesPlatform: React.FC<ActivitiesPlatformProps> = ({
   );
 };
 
-export default ActivitiesPlatform;
+// Esta es la función que debe ser exportada como default para Next.js
+export default function ActividadesPage() {
+  return <ActivitiesPlatform />;
+}
