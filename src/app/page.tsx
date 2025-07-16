@@ -56,17 +56,17 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative h-[90vh] bg-gradient-to-r from-blue-50 to-red-100">
+        <div className="relative h-[90vh] bg-gradient-to-r from-blue-50 to-yellow-100">
           <div className="absolute inset-0">
             <Image src="/maraton2.jpeg" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
-              <h1 className="text-5xl font-bold text-purple-600 mb-6">Después de los 18 sus oportunidades se reducen.  Nosotros las multiplicamos. </h1>
+              <h1 className="text-4xl font-bold text-green-700 mb-6">Después de los 18 sus oportunidades se reducen.  Nosotros las multiplicamos. </h1>
               <p className="text-xl text-gray-600 mb-8">Te creamos un calendario de actividades de aprendizaje, recreación y socialización para adultos con Síndrome de Down que se adaptan a tus horarios.</p>
               <div className="hero-buttons">
                 <Link href="#actividades" className="inline-block">
-                  <button className="bg-white text-purple-800 px-8 py-3 rounded-full font-semibold hover:bg-purple-700 hover:text-white flex items-center transition-colors">Cuéntame más</button>
+                  <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-800 hover:text-white flex items-center transition-colors">Cuéntame más</button>
                 </Link>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Sección de Actividades Mejorada */}
-      <section id="actividades" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <section id="actividades" className="py-20 bg-gradient-to-br from-blue-50 via-green-50 to-yellow-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block p-3 bg-blue-100 rounded-full mb-4">
@@ -104,7 +104,7 @@ export default function Home() {
               </svg>
             </div>
             <h2 className="text-5xl font-bold text-gray-900 mb-4">
-              Descubre <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Actividades</span> Perfectas
+              Descubre <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">Actividades</span> Perfectas
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Encuentra actividades cerca de ti que se adapten a los intereses y horarios de tu familiar. 
@@ -179,7 +179,7 @@ export default function Home() {
                   onClick={handleFindActivities}
                   className="group relative inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-white transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
                   style={{
-                    background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(45deg,rgb(43, 65, 164) 0%,rgb(27, 86, 61) 100%)',
                     borderRadius: '50px',
                     boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)'
                   }}
@@ -225,7 +225,7 @@ export default function Home() {
                   </h4>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500 group-hover:from-blue-600 group-hover:to-purple-600"
+                      className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-500 group-hover:from-blue-600 group-hover:to-purple-600"
                       style={{ width: `${Math.random() * 40 + 60}%` }}
                     ></div>
                   </div>
@@ -244,7 +244,7 @@ export default function Home() {
                 <div className="text-gray-600">Actividades Disponibles</div>
               </div>
               <div className="group">
-                <div className="text-4xl font-bold text-purple-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl font-bold text-yellow-800 mb-2 group-hover:scale-110 transition-transform duration-300">
                   120+
                 </div>
                 <div className="text-gray-600">Familias Beneficiadas</div>
@@ -256,7 +256,7 @@ export default function Home() {
                 <div className="text-gray-600">Ubicaciones</div>
               </div>
               <div className="group">
-                <div className="text-4xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl font-bold text-red-600 mb-2 group-hover:scale-110 transition-transform duration-300">
                   4.9★
                 </div>
                 <div className="text-gray-600">Calificación Promedio</div>

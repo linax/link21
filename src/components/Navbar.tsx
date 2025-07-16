@@ -1,4 +1,5 @@
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
@@ -8,9 +9,10 @@ const Navbar = () => {
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="font-bold text-xl text-amber-600">
-              Link 21
+        <div className="flex-shrink-0 flex items-center">
+         
+            <Link href="/" className="text-white">
+            <Image src="/logo-link21.png" alt="HildaCare Logo" height={70} width={90} />
             </Link>
           </div>
 

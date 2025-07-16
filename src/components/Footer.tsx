@@ -1,10 +1,20 @@
+import Image from "next/image"
+
 const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <a href="#" className="logo text-amber-700">
-          Link<span>21</span>
-        </a>
+        <div className="flex justify-center">
+          <a href="#">
+            <Image
+              className="copyright"
+              src="/logo-link21.png"
+              alt="HildaCare Logo"
+              height={70}
+              width={90}
+            />
+          </a>
+        </div>
         <div className="footer-links">
           <a href="#proposito">Propósito</a>
           <a href="#conectar">Conectar</a>
