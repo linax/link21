@@ -56,9 +56,9 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative h-[90vh] bg-gradient-to-r from-blue-50 to-yellow-100">
+        <div className="relative h-[90vh] bg-gradient-to-r from-blue-100 to-yellow-100">
           <div className="absolute inset-0">
-            <Image src="/maraton2.jpeg" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
+            <Image src="/maraton3.jpeg" alt="Hero" fill className="object-cover mix-blend-overlay" priority />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="max-w-4xl">
